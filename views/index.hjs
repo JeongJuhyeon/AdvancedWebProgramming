@@ -1,0 +1,10 @@
+{{> header }}
+      <h1>{{ title }}</h1>
+    <p>Welcome to {{ title }}</p>
+      {{!-- <form action="/game/123/456" method="get">
+  <input type="text" name="data" id="">
+  <button type="submit">Add to My Memories</button>
+  </form> --}}
+  <button onclick="goToGame()">Fetch</button>
+
+{{>footer}}
