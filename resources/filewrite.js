@@ -1,5 +1,6 @@
 var fs = require("fs");
-const filename = "ranking.json";
+var fsp = require("fs").promises;
+const filename = __dirname + "/ranking.json";
 const slots = 10;
 
 function Ranking(name, score) {
@@ -11,6 +12,14 @@ function compareScore(ranking1, ranking2) {
   return ranking2.score - ranking1.score;
 }
 
+async function getScores() {
+  let arr = [];
+  const data = await fsp.readFile(filename, "utf8");
+
+  // return {'hello': 'world'};
+  return JSON.parse(data);
+}
+
 function addScore(newName, newScore) {
   let arr = [];
 
@@ -20,29 +29,33 @@ function addScore(newName, newScore) {
       throw err;
     }
 
-    let strArray = data.split("\n");
-    let arrayNum = strArray.length;
-    if (strArray.length > 0) 
-      arrayNum = strArray.length - 1;
+    let parsedData = JSON.parse(data);
+    console.log(parsedData);
 
-    for (let i = 0; i < arrayNum; i++) {
-      let one = JSON.parse(strArray[i]);
-      arr.push(one);
+    for (let i = 0; i < parsedData.length; i++) {
+      arr.push(parsedData[i]);
     }
 
-    if ((arr.length == slots) && (arr[slots - 1].score < newScore)) {
-        let deleteranking = new Ranking(arr.pop());
+    console.log(arr.length);
+
+    if (arr.length >= slots) {
+      if (arr[slots - 1].score < newScore) {
+        arr.pop();
+      } else {
+        return;
+      }
     }
-    
+
+    console.log(arr.length);
+
     remakeJson();
   });
-
 
   function remakeJson() {
     arr.push(new Ranking(newName, newScore));
     arr.sort(compareScore);
     // let stringJson = JSON.stringify(arr[1]) + "\n";
-    let stringJson = JSON.stringify(arr)
+    let stringJson = JSON.stringify(arr, null, 2);
     fs.writeFileSync(filename, stringJson, "utf8", function (err) {
       if (err) {
         throw err;
@@ -59,5 +72,9 @@ function addScore(newName, newScore) {
   }
 }
 
-// addScore("Kim", 169)
-module.exports = addScore;
+// addScore("Park", 170);
+
+module.exports = {
+  addScore: addScore,
+  getScores: getScores,
+};
