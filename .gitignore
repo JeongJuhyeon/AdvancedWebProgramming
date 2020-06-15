@@ -118,3 +118,5 @@ dist
 /build/
 
 JSP Server/.metadata/
+
+JSP Server/src/jiri/DBInfo.java
