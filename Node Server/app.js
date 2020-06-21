@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var session = require("express-session");
+var cors = require("cors")
 
 var indexRouter = require("./routes/index");
 var gameRouter = require("./routes/game");
@@ -22,6 +23,7 @@ app.set("partials", {
   header: "header",
 });
 
+app.use(cors())
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
