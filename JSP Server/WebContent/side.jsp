@@ -1,4 +1,4 @@
-<!-- »çÀÌµå¹Ù -->
+<!-- ï¿½ï¿½ï¿½Ìµï¿½ï¿½ -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
     width: 100%;
     padding: 20px;
   }
-  /* »çÀÌµå¹Ù ½ºÅ¸ÀÏ */
+  /* ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ */
   
   .sidebar-nav {
     width: 250px;
@@ -64,16 +64,16 @@
 </head>
 <body>
 <div id="page-wrapper">
-  <!-- »çÀÌµå¹Ù -->
+  <!-- ï¿½ï¿½ï¿½Ìµï¿½ï¿½ -->
   <div id="sidebar-wrapper">
     <ul class="sidebar-nav ">
       <li class="sidebar-brand">
-        <h3>¸Þ´º</h3>
+        <h3>ï¿½Þ´ï¿½</h3>
       </li>
-      <li><a href="./main.jsp" style="color:black;">¸ÞÀÎ È­¸é</a></li>
-      <li><a href="#" style="color:black;">°ÔÀÓ ¹æ¹ý</a></li>
-      <li><a href="./game-Korea.jsp" style="color:black;">°ÔÀÓ ½ÃÀÛ</a></li>
-      <li><a href="#" style="color:black;">ÃÖ°í Á¡¼ö</a></li>
+      <li><a href="./main.jsp" style="color:black;">ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½</a></li>
+      <li><a href="#" style="color:black;">ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½</a></li>
+      <li><a href="./gamestart.jsp" style="color:black;">ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</a></li>
+      <li><a href="./rank.jsp" style="color:black;">ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½</a></li>
     </ul>
   </div>
 </div>
