@@ -23,11 +23,12 @@
 	<jsp:include page="side.jsp" />
 	<div class="content">
 		<div class="form-container">
-		  <form class="form-login">
-		  <h1 class="h3 mb-3 font-weight-normal">로그인</h1>
+		  <form class="form-signup">
+		  <h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
   			<input type="text" id="username" class="form-control" name="username" placeholder="아이디" required autofocus>
-  			<input type="password" id="password" class="form-control" name="password" placeholder="비밀번호" required><br/>
-  			<button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
+  			<input type="password" id="password1" class="form-control" name="password1" placeholder="비밀번호" required>
+  			<input type="password" id="password2" class="form-control" name="password2" placeholder="비밀번호 확인" required></br>
+  			<button id="submitbtn" class="btn btn-lg btn-success btn-block" type="submit">회원가입</button>
 		</form>
 		</div>
 	</div>
