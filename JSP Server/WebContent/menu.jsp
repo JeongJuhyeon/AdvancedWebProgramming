@@ -1,6 +1,6 @@
-<!-- ��ܹ� -->
+<!-- 메뉴-->
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +12,17 @@
     	position:relative;
     	left:10px;
     }
+    a.nav-link{
+    	font-weight:bold;
+    	font-size:18px;
+    }
+    body{
+    	padding-top:74px;
+    }
 </style>
 </head>
 <body>
-	<nav class = "navbar navbar-expand navbar-light bg-success">
+	<nav class = "navbar navbar-expand navbar-light fixed-top bg-success">
 		<div class="container-fluid">
 			<div class="navvar-header">
 				<a class="navbar-brand" href="./main.jsp"><font size="6px">Jiriguessr</font></a>

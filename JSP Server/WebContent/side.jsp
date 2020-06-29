@@ -1,6 +1,6 @@
-<!-- ���̵�� -->
+<!-- 사이드바 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +30,7 @@
     width: 100%;
     padding: 20px;
   }
-  /* ���̵�� ��Ÿ�� */
+  /* 占쏙옙占싱듸옙占� 占쏙옙타占쏙옙 */
   
   .sidebar-nav {
     width: 250px;
@@ -64,16 +64,16 @@
 </head>
 <body>
 <div id="page-wrapper">
-  <!-- ���̵�� -->
+  <!-- 占쏙옙占싱듸옙占� -->
   <div id="sidebar-wrapper">
     <ul class="sidebar-nav ">
       <li class="sidebar-brand">
-        <h3>�޴�</h3>
+        <h3>메뉴</h3>
       </li>
-      <li><a href="./main.jsp" style="color:black;">���� ȭ��</a></li>
-      <li><a href="#" style="color:black;">���� ���</a></li>
-      <li><a href="./gamestart.jsp" style="color:black;">���� ����</a></li>
-      <li><a href="./rank.jsp" style="color:black;">�ְ� ����</a></li>
+      <li><a href="./main.jsp" style="color:black;">메인화면</a></li>
+      <li><a href="./explain.jsp" style="color:black;">게임방법</a></li>
+      <li><a href="./gamestart.jsp" style="color:black;">게임시작</a></li>
+      <li><a href="./rank.jsp" style="color:black;">최고점수</a></li>
     </ul>
   </div>
 </div>
