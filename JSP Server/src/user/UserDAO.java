@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.mysql.*;
+import jiri.DBInfo;
 
 public class UserDAO {
     private Connection conn; 
@@ -11,12 +14,12 @@ public class UserDAO {
     private ResultSet rs; 
 
     public UserDAO() { 
-        try {
-            String dbURL ="jdbc:mysql://localhost:3306/BBS?serverTimezone=UTC&useSSL=false";
-            String dbID = "root";   
-            String dbPassword = "rla1673616";  
+        try {  
             Class.forName("com.mysql.jdbc.Driver");   
-            conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+            conn = DriverManager.getConnection(
+                    "jdbc:mysql://" + DBInfo.URL +
+                    ":3306/member?user="+DBInfo.USER+"&password=" +DBInfo.DBPW
+                ); 
         }catch(Exception e) {
             e.printStackTrace(); //오류발생시 오류내용 출력하게 해주는 소스
         }
@@ -24,7 +27,7 @@ public class UserDAO {
 
     public int login(String userID, String userPassword) {
 
-        String SQL = "Select userPassword From USER where userID = ?";
+        String SQL = "Select userPassword From user where userID = ?";
         try {
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, userID);
@@ -42,7 +45,7 @@ public class UserDAO {
         return -2; // 데이터베이스 오류
     }  
     public int join(String userID, String userPassword) {
-        String SQL = "INSERT INTO USER VALUES (?,?)"; 
+        String SQL = "INSERT INTO user VALUES (?,?)"; 
         try {
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, userID);
