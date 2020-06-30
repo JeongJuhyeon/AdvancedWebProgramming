@@ -22,25 +22,11 @@
 </style>
 </head>
 <body>
-	<script>
-	var setCookie = function (name, value, exp) {
-		var date = new Date();
-        date.setTime(0);
-        document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
-    };
-		let logout = function () {
-			setCookie("userID",0,1);
-			location.href = "index.jsp";
-	}
-	</script>
 	<nav class = "navbar navbar-expand navbar-light fixed-top bg-success">
 		<div class="container-fluid">
 			<div class="navvar-header">
 				<a class="navbar-brand" href="./main.jsp"><font size="6px">Jiriguessr</font></a>
 			</div>
-			<ul class="nav navbar-nav navbar-right">
-				<li><input id="btn" type="button" id="logout" value="로그아웃 " onclick="logout()"></li>
-			</ul>
 		</div>
 	</nav>
 </body>

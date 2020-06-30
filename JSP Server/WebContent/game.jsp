@@ -1,6 +1,6 @@
-<!-- °ÔÀÓÈ­¸é -->
+<!-- ê²Œìž„í™”ë©´ -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,45 +8,57 @@
 <title>Jiriguessr</title>
 </head>
 <body>
-	<!-- ·Îµåºä¸¦ Ç¥½ÃÇÒ div ÀÔ´Ï´Ù -->
-    <div id="pano" style="width:90%;height:600px;"></div>
+   <!-- ë¡œë“œë·°ë¥¼ í‘œì‹œí•  div ìž…ë‹ˆë‹¤ -->
+    <div id="pano" style="width:100%;height:600px;"></div>
     <div>
-        <input type="range" id="slide" style="width:90%" value="0" min="-180" max="180" oninput="setDir(value)">
+        <input type="range" id="slide" style="width:100%" value="0" min="-180" max="180" oninput="setDir(value)">
     </div>
     <div id="map" style="width:100%;height:300px;"></div>
     <script type="text/javascript"
         src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=fhco9ogb8u&submodules=panorama"></script>
     <script>
-    	temp=location.href.split("?") 
-    	data=temp[1].split(":") 
-        let errorCount = 0;
         let distance;
-        let selectPos;
-        let y = data[0]*1;
-        let x = data[1]*1;
+        let y;
+        let x;
         let guessPos;
         let answer;
         let start;
         let end;
         let score;
-        let diff = data[2];
+        let id;
+        let diff;
         let highScore = new Array(10);
-        let btn = document.getElementById("btn");
-        let pano = new naver.maps.Panorama("pano", {
-            position: new naver.maps.LatLng(y + (Math.random() - 0.5) / 111 * diff, x + (Math.random() - 0.5) / 88 * diff)
+        let pano;
+        let getCookie = function (name) {
+            let value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return value ? value[2] : null;
+        };
+        id = getCookie("id");
+        x = getCookie("x") * 1;        
+        y = getCookie("y")*1;
+        pano = new naver.maps.Panorama("pano", {
         });
+        pano.setPanoId(id);
+        console.log(id);
+        naver.maps.Event.addListener(pano, "init", function () {
+            answer = pano.getPosition();
+            console.log(answer);
+            pano.setVisible(true);
+            pano.setPov({
+                pan: -70,
+                tilt: 20,
+                fov: 100
+            });
+        });
+        diff = getCookie("diff")*1;
         let map = new naver.maps.Map('map', {
             center: new naver.maps.LatLng(y, x),
             zoom: 8
         });
-        let marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(y, x),
-            map: map
-        });
         let rectangle = new naver.maps.Rectangle({
             map: map,
             bounds: new naver.maps.LatLngBounds(
-            	new naver.maps.LatLng(y - 0.5 / 111 * diff, x + 0.5 / 88 * diff),  // sw
+               new naver.maps.LatLng(y - 0.5 / 111 * diff, x + 0.5 / 88 * diff),  // sw
                 new naver.maps.LatLng(y + 0.5 / 111 * diff, x - 0.5 / 88 * diff)   // ne
             ),
             strokeColor: '#5347AA',
@@ -57,19 +69,20 @@
         });
         
         if(diff < 10){
-        	map.setZoom(14);
+           map.setZoom(14);
         }
         else if(diff < 100){
-        	map.setZoom(11);
+           map.setZoom(11);
         }
         
         errorCount = 0;
         start = new Date().getTime();
         naver.maps.Event.addListener(pano, "init", function () {
             pano.setVisible(true);
+            answer = pano.getPosition();
             pano.setPov({
-                pan: -70,
-                tilt: 20,
+                pan: 0,
+                tilt: 15,
                 fov: 100
             });
         });
@@ -78,35 +91,14 @@
                 guessPos = e.latlng;
                 distance = Math.sqrt(Math.abs(answer.x - guessPos.x) * 88 * Math.abs(answer.x - guessPos.x) * 88 + Math.abs(answer.y - guessPos.y) * 111 * Math.abs(answer.y - guessPos.y) * 111);
                 console.log(distance);
-                if (Math.abs(answer.x - guessPos.x) <= 0.1 / 88 * diff && Math.abs(answer.y - guessPos.y) <= 0.1 / 111 * diff) {
-                    console.log("correct");
                     end = new Date().getTime();
-                    score = (end - start) / 1000;
-                    alert(score);
-            }
+                    score = 1/ ((distance * (end - start)) / 1000) * 10000;
+                    score = Math.round(score);
+                    setCookie("score",score,1);
+                    location.href="rank.jsp";
+          
         });
-        naver.maps.Event.addListener(pano, "pano_status", function (panoramaStatus) {
-        	 if (panoramaStatus === "ERROR") {
-                 errorCount++;
-                 pano.setPosition(new naver.maps.LatLng(y + (Math.random() - 0.5) / 111 * diff, x + (Math.random() - 0.5) / 88 * diff));
-                 pano.setPov({
-                     pan: 0,
-                     tilt: 15,
-                     fov: 100
-                 })
-             }
-        	else{
-                answer = pano.getPosition();
-                btn.style.display = "block";
-                searching = false;
-                rectangle.setMap(map);
-                rectangle.setBounds(new naver.maps.LatLngBounds(
-                    new naver.maps.LatLng(y - 0.5 / 111 * diff, x + 0.5 / 88 * diff),  // sw
-                    new naver.maps.LatLng(y + 0.5 / 111 * diff, x - 0.5 / 88 * diff)   // ne
-                ));
-        	}
-        });
-
+        
         function setDir(value) {
             pano.setPov({
                 pan: value,
@@ -114,6 +106,11 @@
                 fov: 100
             });
         }
+        var setCookie = function (name, value, exp) {
+            var date = new Date();
+            date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+        };
     </script>
 </body>
 </html>

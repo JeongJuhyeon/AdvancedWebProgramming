@@ -19,15 +19,13 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="menu.jsp" />
-	<jsp:include page="side.jsp" />
+	<jsp:include page="menu1.jsp" />
 	<div class="content">
 		<div class="form-container">
-		  <form class="form-signup">
+		  <form class="form-signup" action="./joinAction.jsp" method="post">
 		  <h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
-  			<input type="text" id="username" class="form-control" name="username" placeholder="아이디" required autofocus>
-  			<input type="password" id="password1" class="form-control" name="password1" placeholder="비밀번호" required>
-  			<input type="password" id="password2" class="form-control" name="password2" placeholder="비밀번호 확인" required></br>
+  			<input type="text" id="userID" class="form-control" maxlength="10" name="userID" placeholder="아이디" required autofocus>
+  			<input type="password" id="userPassword" class="form-control" maxlength="10" name="userPassword" placeholder="비밀번호" required>
   			<button id="submitbtn" class="btn btn-lg btn-success btn-block" type="submit">회원가입</button>
 		</form>
 		</div>

@@ -15,7 +15,7 @@ router.get("/start/", function (req, res, next) {
 });
 
 router.post("/scores/:name/:score", function (req, res, next) {
-  scores.addScore(req.params.name, req.params.score);
+  scores.addScore(req.params.name, parseInt(req.params.score));
   res.send(true);
 });
 

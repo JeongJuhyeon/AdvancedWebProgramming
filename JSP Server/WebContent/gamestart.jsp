@@ -1,69 +1,69 @@
-<!-- ���ӽ����� ȭ�� -->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<!-- 게임시작전 화면 -->
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel = "stylesheet" href = "./resources/css/bootstrap.min.css">
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Jiriguessr</title>
 <style type="text/css">
 
-	.btn-success:active,
-	.btn-success:visited,
-	.btn-success:active:focus,
-	.btn-success:active:hover {
-    	border-color: #74DF00;
-    	background-color: #74DF00;
-    	color: #000; 
-    	}
+   .btn-success:active,
+   .btn-success:visited,
+   .btn-success:active:focus,
+   .btn-success:active:hover {
+       border-color: #74DF00;
+       background-color: #74DF00;
+       color: #000; 
+       }
     h3.title{
-    	position:absolute;
-    	left:300px;
-		top:100px;
+       position:absolute;
+       left:300px;
+      top:100px;
     }
     img.title{
-    	position:absolute;
-    	left:220px;
-		top:150px;
+       position:absolute;
+       left:220px;
+      top:150px;
     }
     .content1{
-    	position:absolute;
-    	left:600px;
-		top:120px;
+       position:absolute;
+       left:600px;
+      top:120px;
     }
     .content2{
-    	position:absolute;
-    	left:600px;
-		top:55px;
+       position:absolute;
+       left:600px;
+      top:55px;
     }
     .content3{
-    	position:absolute;
-    	left:525px;
-    	bottom:0px;
+       position:absolute;
+       left:525px;
+       bottom:0px;
     }
     
 </style>
 </head>
 <body>
-	<jsp:include page="menu.jsp" />
-	<jsp:include page="side.jsp" />
-	<br>
-	<h3 class="title" style="color:white">���� ����</h3>
-	<img class="title" alt="" src="./resources/images/korea.jpg" style="width:300px">
-		
-	<div id="pano" style="width:0px;height:0px;"></div>
-		
-	<div class="content1" style="color:white">
-		<input id="btn" type="button" class="content3 btn btn-success btn-lg" id="start" value="start" onclick="startGame()">
+   <jsp:include page="menu.jsp" />
+   <jsp:include page="side.jsp" />
+   <br>
+   <h3 class="title" style="color:white">전국 지도</h3>
+   <img class="title" alt="" src="./resources/images/korea.jpg" style="width:300px">
+      
+   <div id="pano" style="width:0px;height:0px;"></div>
+      
+   <div class="content1" style="color:white">
+      <input id="btn" type="button" class="content3 btn btn-success btn-lg" id="start" value="start" onclick="startGame()">
         <input type="radio" name="difficulty" value="1" onchange="difficultyChange(value)" checked>1km
         <input type="radio" name="difficulty" value="10" onchange="difficultyChange(value)">10km
         <input type="radio" name="difficulty" value="100" onchange="difficultyChange(value)">100km
     </div>
-	<div class="content2" id="map" style="width:600px;height:600px;"></div>
-	<script type="text/javascript"
-        	src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=fhco9ogb8u&submodules=panorama"></script>
-	<script>
+   <div class="content2" id="map" style="width:600px;height:600px;"></div>
+   <script type="text/javascript"
+           src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=fhco9ogb8u&submodules=panorama"></script>
+   <script>
         let errorCount = 0;
         let distance;
         let selectPos;
@@ -114,7 +114,7 @@
             if (errorCount > 100) {
                 errorCount = 0;
                 searching = false;
-                alert("�ش� ��ġ ��ó�� �ε�䰡 �����ϴ�.");
+                alert("해당 위치 근처에 로드뷰가 없습니다.");
             }
             if (panoramaStatus === "ERROR" && searching === true) {
                 errorCount++;
@@ -146,7 +146,7 @@
         function startGame() {
             btn.style.display = "none";
             errorCount = 0;
-            //game.jsp�� �÷��̾ ������ ��ġ ����
+            //game.jsp에 플레이어가 선택한 위치 전달
             location.href="game.jsp";
             setCookie("id",pano.getPanoId(),1);
             setCookie("x",selectPos.x,1);

@@ -7,6 +7,17 @@
 <link rel = "stylesheet" href = "./resources/css/bootstrap.min.css">
 <meta charset="EUC-KR">
 <title>Jiriguessr</title>
+<script>
+let userid;
+let getCookie = function (name) {
+            let value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return value ? value[2] : null;
+        };
+userid= getCookie("userID");
+if(userid == null){
+location.href="index.jsp";
+}
+</script>
 <style type="text/css">
 
 	.btn-success:active,
