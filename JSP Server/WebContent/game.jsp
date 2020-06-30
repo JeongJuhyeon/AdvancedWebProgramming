@@ -6,6 +6,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>Jiriguessr</title>
+<style type="text/css">
+    #pano{ pointer-events: none; }
+</style>
 </head>
 <body>
    <!-- 로드뷰를 표시할 div 입니다 -->
