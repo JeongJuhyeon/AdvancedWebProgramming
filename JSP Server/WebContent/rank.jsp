@@ -20,12 +20,13 @@
 
 		div.target {
 			color: white;
+			padding-top: 100px;
 		}
 		
 		#container {
-			display: block;
+			display: flex;
 			position: relative;
-			margin-left: 15%;
+			margin-left: 20%;
 			padding-left: 0px;
 		}
 		input {
@@ -62,7 +63,25 @@
 		.btns {
 			display: inline-block;
 			font-weight: 200;
+
 		}
+		
+		#btnspan input {
+		background-color: #1f8f39;
+		border-color: #1f8f39;
+		color: white;
+		}
+		
+		#leftdiv {
+			    padding-right: 70px;
+    padding-left: 150px;
+    padding-top: 60px;
+		}
+		
+		.target h3 {
+			font-weight: 150;
+		}
+		
 		
 	</style>
 </head>
@@ -71,16 +90,18 @@
 	<jsp:include page="menu.jsp" />
 	<jsp:include page="side.jsp" />
 	<div id="container">
-		<br>
-		<div id="id" style="color:white; font-size:xx-large;"></div>
-		<div id="score" style="color:white; font-size:xx-large;"></div>	
-		<div id="btndiv">
-		<span id="btnspan">
-		<input id="btn" class="btns" type="button" value="메인으로 가기" onclick="endGame()">
-		<input id="btn" class="btns" type="button" value="랭킹에 점수 등록 " onclick="rank()">
-		</span>
+		<div id="leftdiv">
+			<br>
+			<div id="id" style="color:white; font-size:xx-large;"></div>
+			<div id="score" style="color:white; font-size:xx-large;"></div>	
+			<div id="btndiv">
+			<span id="btnspan">
+				<input id="btnend" class="btns btn btn-sm" type="button" value="메인으로 가기" onclick="endGame()">
+				<input id="btnrank" class="btns btn btn-sm" type="button" value="랭킹에 점수 등록 " onclick="rank()">
+				</span>
+			</div>
+			<br>
 		</div>
-		<br>
 		<div class="target"></div>
 	</div>
 </body>

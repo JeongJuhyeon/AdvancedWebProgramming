@@ -22,8 +22,10 @@
     #bar{
     	background-color:#404147;
     }
-   	a.navbar-brand{
-   		color: #c9c9c9;	
+   	.navbar-brand#logo{	
+   		color: white;
+   		font-size: 2rem;
+   		font-weight: 100;
    	} 
    	#btn{
    	    background-color: transparent !important;
@@ -48,7 +50,7 @@
 	<nav id = "bar" class = "navbar navbar-expand navbar-light fixed-top">
 		<div class="container-fluid">
 			<div class="navvar-header">
-				<a class="navbar-brand" href="./main.jsp"><font size="6px" color="#c9c9c9">Jiriguessr</font></a>
+				<a id="logo" class="navbar-brand" href="./main.jsp" >Jiriguessr</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
 				<li><input id="btn" type="button" id="logout" value="로그아웃 " onclick="logout()"></li>

@@ -19,6 +19,12 @@
     body{
     	padding-top:74px;
     }
+    .navbar-brand#logo{	
+   		color: white;
+   		font-size: 2rem;
+   		font-weight: 100;
+   	} 
+   	
     #bar{
     	background-color:#404147;
     }
@@ -28,7 +34,7 @@
 	<nav id="bar" class = "navbar navbar-expand navbar-light fixed-top">
 		<div class="container-fluid">
 			<div class="navvar-header">
-				<a class="navbar-brand" href="./main.jsp"><font size="6px" color="#c9c9c9">Jiriguessr</font></a>
+				<a id="logo" class="navbar-brand" href="./main.jsp">Jiriguessr</a>
 			</div>
 		</div>
 	</nav>
