@@ -108,7 +108,6 @@ img.title {
             fillOpacity: 0.1
         });
         naver.maps.Event.addListener(map, 'click', function (e) {
-                btn.style.display = "none";
                 rectangle.setMap(null);
                 searching = true;
                 selectPos = e.latlng;
@@ -136,7 +135,6 @@ img.title {
                 })
             }
             else if (searching === true) {
-                btn.style.display = "block";
                 searching = false;
                 rectangle.setMap(map);
                 rectangle.setBounds(new naver.maps.LatLngBounds(
@@ -154,7 +152,6 @@ img.title {
             });
         }
         function startGame() {
-            btn.style.display = "none";
             errorCount = 0;
             //game.jsp에 플레이어가 선택한 위치 전달
             location.href="game.jsp";
@@ -171,7 +168,6 @@ img.title {
         function difficultyChange(value) {
             diff = value;
             rectangle.setMap(null);
-            btn.style.display = "none";
             searching = true;
             marker.setPosition(selectPos);
             pano.setPosition(new naver.maps.LatLng(selectPos.y + (Math.random() - 0.5) / 111 * diff, selectPos.x + (Math.random() - 0.5) / 88 * diff));
@@ -185,7 +181,6 @@ img.title {
                 new naver.maps.LatLng(selectPos.y + 0.5 / 111 * diff, selectPos.x - 0.5 / 88 * diff)   // ne
             ));
         }
-        btn.style.display = "none";
     </script>
 </body>
 </html>
