@@ -19,26 +19,70 @@
 		}
 
 		div.target {
-			position: absolute;
-			left: 300px;
-			top: 100px;
 			color: white;
 		}
+		
+		#container {
+			display: block;
+			position: relative;
+			margin-left: 15%;
+			padding-left: 0px;
+		}
+		input {
+			    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: 200;
+		}
+		
+		#id {
+			padding-top: 40px; 
+		}
+		
+	
+		
+		#id, #score {
+		text-align: center;
+		}
+		
+		#btndiv {
+			padding: 0%;
+			padding-top: 10px;
+			min-width: 250px;
+			min-height: 1000px;
+			position: relative;
+			/*text-align: center*/
+		}
+		
+		#btnspan {
+			text-align: center;
+			display: block;
+		}
+		
+		.btns {
+			display: inline-block;
+			font-weight: 200;
+		}
+		
 	</style>
 </head>
 
 <body>
 	<jsp:include page="menu.jsp" />
 	<jsp:include page="side.jsp" />
-	<center>
+	<div id="container">
 		<br>
 		<div id="id" style="color:white; font-size:xx-large;"></div>
 		<div id="score" style="color:white; font-size:xx-large;"></div>	
-		<input id="btn" type="button" id="main" value="메인으로 가기" onclick="endGame()">
-		<input id="btn" type="button" id="rank" value="랭킹에 점수 등록 " onclick="rank()">
+		<div id="btndiv">
+		<span id="btnspan">
+		<input id="btn" class="btns" type="button" value="메인으로 가기" onclick="endGame()">
+		<input id="btn" class="btns" type="button" value="랭킹에 점수 등록 " onclick="rank()">
+		</span>
+		</div>
 		<br>
 		<div class="target"></div>
-	</center>
+	</div>
 </body>
 <script>
 	let board = document.getElementById("score");
@@ -54,8 +98,8 @@
 	score = getCookie("score");
 	userID = getCookie("userID");
 	
-	board1.innerHTML = "ID : " + userID;
-	board.innerHTML =  "SCORE : " + score;
+	board1.innerHTML = "ID: " + userID;
+	board.innerHTML =  "Score: " + score;
 	let endGame = function () {
 		location.href = "main.jsp";
 	}

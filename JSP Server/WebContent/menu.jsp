@@ -19,6 +19,18 @@
     body{
     	padding-top:74px;
     }
+    #bar{
+    	background-color:#404147;
+    }
+   	a.navbar-brand{
+   		color: #c9c9c9;	
+   	} 
+   	#btn{
+   	    background-color: transparent !important;
+   	    border: 0px;
+   	    color: white;
+   	}
+    
 </style>
 </head>
 <body>
@@ -33,10 +45,10 @@
 			location.href = "index.jsp";
 	}
 	</script>
-	<nav class = "navbar navbar-expand navbar-light fixed-top bg-success">
+	<nav id = "bar" class = "navbar navbar-expand navbar-light fixed-top">
 		<div class="container-fluid">
 			<div class="navvar-header">
-				<a class="navbar-brand" href="./main.jsp"><font size="6px">Jiriguessr</font></a>
+				<a class="navbar-brand" href="./main.jsp"><font size="6px" color="#c9c9c9">Jiriguessr</font></a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
 				<li><input id="btn" type="button" id="logout" value="로그아웃 " onclick="logout()"></li>

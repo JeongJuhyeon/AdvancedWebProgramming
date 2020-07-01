@@ -8,7 +8,11 @@
 <meta charset="EUC-KR">
 <title>Jiriguessr</title>
 <style type="text/css">
-
+	
+	#startbtn {
+    	font-size: 24px;
+    }
+	
    .btn-success:active,
    .btn-success:visited,
    .btn-success:active:focus,
@@ -19,13 +23,15 @@
        }
     h3.title{
        position:absolute;
-       left:300px;
-      top:100px;
+       left:320px;
+  	   top:100px;
+  	   padding-left: 20px;
     }
     img.title{
        position:absolute;
        left:220px;
-      top:150px;
+       padding-left: 20px;
+       top:150px;
     }
     .content1{
        position:absolute;
@@ -55,7 +61,7 @@
    <div id="pano" style="width:0px;height:0px;"></div>
       
    <div class="content1" style="color:white">
-      <input id="btn" type="button" class="content3 btn btn-success btn-lg" id="start" value="start" onclick="startGame()">
+      <input id="startbtn" type="button" class="content3 btn btn-success" value="Start" onclick="startGame()">
         <input type="radio" name="difficulty" value="1" onchange="difficultyChange(value)" checked>1km
         <input type="radio" name="difficulty" value="10" onchange="difficultyChange(value)">10km
         <input type="radio" name="difficulty" value="100" onchange="difficultyChange(value)">100km

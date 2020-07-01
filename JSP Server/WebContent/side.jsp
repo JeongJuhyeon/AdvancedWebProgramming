@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <style>
 	body{
-  		background-color: #333333;
+  		background-color: #35363a;
   	}
   	
   	#page-wrapper {
@@ -21,7 +21,7 @@
     width: 200px;
     height: 100%;
     margin-left: -250px;
-    background: #82FA58;
+    background: #37383d;
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -59,6 +59,17 @@
     font-size: 1.3em;
     line-height: 3em;
   }
+  
+  .a  {
+  	color: white;
+  }
+  
+  #m5 {
+    margin-top: 25px;
+    margin-bottom: 22px;
+  	color: #c9c9c9;
+  }
+  
 </style>
 
 </head>
@@ -68,12 +79,12 @@
   <div id="sidebar-wrapper">
     <ul class="sidebar-nav ">
       <li class="sidebar-brand">
-        <h3>메뉴</h3>
+        <h3 id="m5">메뉴</h3>
       </li>
-      <li><a href="./main.jsp" style="color:black;">메인화면</a></li>
-      <li><a href="./explain.jsp" style="color:black;">게임방법</a></li>
-      <li><a href="./gamestart.jsp" style="color:black;">게임시작</a></li>
-      <li><a href="./rank.jsp" style="color:black;">최고점수</a></li>
+      <li><a href="./main.jsp">메인화면</a></li>
+      <li><a href="./explain.jsp">게임방법</a></li>
+      <li><a href="./gamestart.jsp"">게임시작</a></li>
+      <li><a href="./rank.jsp">최고점수</a></li>
     </ul>
   </div>
 </div>

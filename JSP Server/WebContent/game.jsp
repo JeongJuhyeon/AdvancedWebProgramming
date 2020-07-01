@@ -8,6 +8,10 @@
 <title>Jiriguessr</title>
 <style type="text/css">
     #pano{ pointer-events: none; }
+	body{
+  		background-color: #35363a;
+  	}
+  	
 </style>
 </head>
 <body>

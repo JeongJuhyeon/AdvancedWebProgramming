@@ -38,6 +38,8 @@ location.href="index.jsp";
 		display: inline-block;
     	width: 400px;
     	height: 300px;
+    	margin-right: 20px;
+    	padding-bottom: 10px;
 	}
 	
 	center{

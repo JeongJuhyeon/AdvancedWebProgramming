@@ -19,13 +19,16 @@
     body{
     	padding-top:74px;
     }
+    #bar{
+    	background-color:#404147;
+    }
 </style>
 </head>
 <body>
-	<nav class = "navbar navbar-expand navbar-light fixed-top bg-success">
+	<nav id="bar" class = "navbar navbar-expand navbar-light fixed-top">
 		<div class="container-fluid">
 			<div class="navvar-header">
-				<a class="navbar-brand" href="./main.jsp"><font size="6px">Jiriguessr</font></a>
+				<a class="navbar-brand" href="./main.jsp"><font size="6px" color="#c9c9c9">Jiriguessr</font></a>
 			</div>
 		</div>
 	</nav>
