@@ -27,7 +27,7 @@
    		font-size: 2rem;
    		font-weight: 100;
    	} 
-   	#btn{
+   	#btnlogout{
    	    background-color: transparent !important;
    	    border: 0px;
    	    color: white;
@@ -53,7 +53,7 @@
 				<a id="logo" class="navbar-brand" href="./main.jsp" >Jiriguessr</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><input id="btn" type="button" id="logout" value="로그아웃 " onclick="logout()"></li>
+				<li><input id="btnlogout" type="button" id="logout" value="로그아웃 " onclick="logout()"></li>
 			</ul>
 		</div>
 	</nav>

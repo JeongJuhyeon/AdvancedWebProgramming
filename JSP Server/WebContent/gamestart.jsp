@@ -1,75 +1,79 @@
 <!-- 게임시작전 화면 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel = "stylesheet" href = "./resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 <meta charset="EUC-KR">
 <title>Jiriguessr</title>
 <style type="text/css">
-	
-	#startbtn {
-    	font-size: 24px;
-    }
-	
-   .btn-success:active,
-   .btn-success:visited,
-   .btn-success:active:focus,
-   .btn-success:active:hover {
-       border-color: #74DF00;
-       background-color: #74DF00;
-       color: #000; 
-       }
-    h3.title{
-       position:absolute;
-       left:320px;
-  	   top:100px;
-  	   padding-left: 20px;
-    }
-    img.title{
-       position:absolute;
-       left:220px;
-       padding-left: 20px;
-       top:150px;
-    }
-    .content1{
-       position:absolute;
-       left:600px;
-      top:120px;
-    }
-    .content2{
-       position:absolute;
-       left:600px;
-      top:55px;
-    }
-    .content3{
-       position:absolute;
-       left:525px;
-       bottom:0px;
-    }
-    
+#startbtn {
+	font-size: 24px;
+}
+
+.btn-success:active, .btn-success:visited, .btn-success:active:focus,
+	.btn-success:active:hover {
+	border-color: #74DF00;
+	background-color: #74DF00;
+	color: #000;
+}
+
+h3.title {
+	position: absolute;
+	left: 320px;
+	top: 100px;
+	padding-left: 20px;
+}
+
+img.title {
+	position: absolute;
+	left: 220px;
+	padding-left: 20px;
+	top: 150px;
+}
+
+.content1 {
+	position: absolute;
+	left: 600px;
+	top: 120px;
+}
+
+.content2 {
+	position: absolute;
+	left: 600px;
+	top: 55px;
+}
+
+.content3 {
+	position: absolute;
+	left: 525px;
+	bottom: 0px;
+}
 </style>
 </head>
 <body>
-   <jsp:include page="menu.jsp" />
-   <jsp:include page="side.jsp" />
-   <br>
-   <h3 class="title" style="color:white">전국 지도</h3>
-   <img class="title" alt="" src="./resources/images/korea.jpg" style="width:300px">
-      
-   <div id="pano" style="width:0px;height:0px;"></div>
-      
-   <div class="content1" style="color:white">
-      <input id="startbtn" type="button" class="content3 btn btn-success" value="Start" onclick="startGame()">
-        <input type="radio" name="difficulty" value="1" onchange="difficultyChange(value)" checked>1km
-        <input type="radio" name="difficulty" value="10" onchange="difficultyChange(value)">10km
-        <input type="radio" name="difficulty" value="100" onchange="difficultyChange(value)">100km
-    </div>
-   <div class="content2" id="map" style="width:600px;height:600px;"></div>
-   <script type="text/javascript"
-           src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=fhco9ogb8u&submodules=panorama"></script>
-   <script>
+	<jsp:include page="menu.jsp" />
+	<jsp:include page="side.jsp" />
+	<br>
+	<h3 class="title" style="color: white">전국 지도</h3>
+	<img class="title" alt="" src="./resources/images/korea.jpg"
+		style="width: 300px">
+
+	<div id="pano" style="width: 0px; height: 0px;"></div>
+
+	<div class="content1" style="color: white">
+		<input id="startbtn" type="button" class="content3 btn btn-success"
+			value="Start" onclick="startGame()"> <input type="radio"
+			name="difficulty" value="1" onchange="difficultyChange(value)"
+			checked>1km <input type="radio" name="difficulty" value="10"
+			onchange="difficultyChange(value)">10km <input type="radio"
+			name="difficulty" value="100" onchange="difficultyChange(value)">100km
+	</div>
+	<div class="content2" id="map" style="width: 600px; height: 600px;"></div>
+	<script type="text/javascript"
+		src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=fhco9ogb8u&submodules=panorama"></script>
+	<script>
         let errorCount = 0;
         let distance;
         let selectPos;
